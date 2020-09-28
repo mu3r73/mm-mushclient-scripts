@@ -458,7 +458,7 @@ end
   <trigger
    group="detect_spells"
    keep_evaluating="y"
-   match="^Item \'(?P&lt;name&gt;.+)\' is type spellbook\, alignment (.+)\, made of (.+) \(in \((.+)\) condition\)\,$"
+   match="^Item \'(?P&lt;name&gt;.+)\' is type spellbook\, alignment (.+)\, made of (.+) \(in \((.+)\) condition\)\,\[Study\]$"
    regexp="y"
    send_to="12"
    sequence="100"
