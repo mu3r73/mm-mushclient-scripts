@@ -55,7 +55,7 @@ In the example function:
    language="Lua"
    purpose="updates plugins"
    date_written="2012-07-20 11:30:15"
-   date_modified="2017-03-19 18:05:36"
+   date_modified="2020-09-28 10:08:22"
    requires="4.71"
    version="2.0"
    >
@@ -73,8 +73,16 @@ Downloads and installs updated plugins.
 
 ** REQUIRES **
 
+DLLs:
+- The files lua5.1.dll and lua51.dll (LuaJIT) must be placed in the MUSHclient directory.
+- The file openssl.dll must be placed in the MUSHclient directory.
+- The file socket/core.dll must be placed in the MUSHclient/socket directory.
+- The file mime/core.dll must be placed in the MUSHclient/mime directory.
 - The file llthreads2.dll must be placed in the MUSHclient directory.
-- The file ssl.dll must be placed in the MUSHclient directory.
+
+Modules:
+- The file socket.lua must be placed in the MUSHclient/lua directory.
+- The files ftp.lua, headers.lua, http.lua, smtp.lua, tp.lua, url.lua must be placed in the MUSHclient/lua/socket directory.
 - The file ssl.lua must be placed in the MUSHclient/lua directory.
 - The file https.lua must be placed in the MUSHclient/lua/ssl directory.
 - The file async.lua must be placed in the MUSHclient/lua directory.
@@ -92,8 +100,8 @@ Syntax:
 
 
 Plugin created by Ruthgul
-HTTPS supported via LuaSec
-Threads supported via llthreads2
+HTTPS supported via Lua-OpenSSL
+Threads supported via llthreads2 (DLL compiled for LuaJIT)
 Async code by Fiendish
 
 
@@ -241,11 +249,25 @@ end
 
 function plugin_update_aux_url()
   local t = {
---    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/dll/llthreads.dll,MUSH",
---    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/dll/ssl.dll,MUSH",
-    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/async.lua,MUSH/lua",
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/dll/lua5.1.dll,MUSH", --luajit
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/dll/lua51.dll,MUSH",
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/dll/mime/core.dll,MUSH/mime",
+
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/dll/socket/core.dll,MUSH/socket",
+    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket.lua,MUSH/lua",
+    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/ftp.lua,MUSH/lua/socket",
+    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/headers.lua,MUSH/lua/socket",
+    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/http.lua,MUSH/lua/socket",
+    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/smtp.lua,MUSH/lua/socket",
+    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/tp.lua,MUSH/lua/socket",
+    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/url.lua,MUSH/lua/socket",
+
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/dll/openssl.dll,MUSH",
     "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/ssl.lua,MUSH/lua",
     "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/https.lua,MUSH/lua/ssl",
+
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/dll/llthreads2.dll,MUSH",
+    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/async.lua,MUSH/lua",
   }
   return (table.concat(t, ";"))
 end
