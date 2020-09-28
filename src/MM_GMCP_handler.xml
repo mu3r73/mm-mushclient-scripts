@@ -298,7 +298,7 @@ function OnPluginTelnetRequest(msg_type, data)
     Note("Enabling GMCP.")
     -- This hard-coded block may need to be made into a config table as we add more message types.
     Send_GMCP_Packet(string.format('Core.Hello { "client": "MUSHclient", "version": "%s" }', Version()))
-    Send_GMCP_Packet('Core.Supports.Set [ "Char 1", "Comm 1", "Room 1", "Core 1", "IRE.Composer 1" ]')
+    Send_GMCP_Packet('Core.Supports.Set [ "Char 1", "Char.Item 1", "Comm 1", "Room 1", "Core 1", "IRE.Composer 1" ]')
     return true
   end -- if GMCP login needed (just sent DO)
 
