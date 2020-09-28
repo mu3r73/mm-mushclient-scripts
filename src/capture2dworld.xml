@@ -8,17 +8,17 @@
 <muclient>
 
 <plugin
-   name="capture2dworld"
-   author="Ruthgul"
-   id="b2772cad800b33a6073d9377"
-   language="Lua"
-   purpose="capture channels to a single dummy world"
-   save_state="y"
-   date_written="2012-05-13 16:42:17"
-   date_modified="2015-04-17 07:01:31"
-   requires="4.71"
-   version="1.0"
-   >
+  name="capture2dworld"
+  author="Ruthgul"
+  id="b2772cad800b33a6073d9377"
+  language="Lua"
+  purpose="capture channels to a single dummy world"
+  save_state="y"
+  date_written="2012-05-13 16:42:17"
+  date_modified="2020-09-28 09:07:56"
+  requires="4.71"
+  version="1.0"
+>
 
 
 <description trim="y">
@@ -257,7 +257,7 @@ http://github.com/mu3r73/mm-mushclient-scripts
    enabled="y"
    keep_evaluating="y"
    expand_variables="y"
-   match="^(?P&lt;who&gt;(@!char_name)) (says|whispers) something to (.+)\.$"
+   match="^(?P&lt;who&gt;(@!char_name)) (says|whispers|communicates) something to (.+)\.$"
    regexp="y"
    send_to="14"
    sequence="100"
@@ -271,7 +271,7 @@ capture_stuff("%&lt;who&gt;", "say", "%0", true)
    enabled="y"
    keep_evaluating="y"
    expand_variables="y"
-   match="^(?P&lt;who&gt;(You|(@!char_name))) (ask(| (.+))|asks(| you)|exclaim(| to (.+))|exclaims(| to you)|(say|whisper)(| to (.+))|(says|whispers)(| to you))\, \'(.+)\'$"
+   match="^(?P&lt;who&gt;(You|(@!char_name))) (ask(| (.+))|asks(| you)|exclaim(| to (.+))|exclaims(| to you)|(say|whisper|communicate)(| to (.+))|(says|whispers|communicates)(| to you))\, \'(.+)\'$"
    regexp="y"
    send_to="14"
    sequence="100"
@@ -284,7 +284,7 @@ capture_stuff("%&lt;who&gt;", "say", "%0", true)
   <trigger
    enabled="y"
    keep_evaluating="y"
-   match="^\'(.+)\' (?P&lt;who&gt;(you|(.+))) (ask(| (.+))|asks(| you)|exclaim(| to (.+))|exclaims(| to you)|say(| to (.+))|says(| to you))\. \'(.+)\'$"
+   match="^\'(.+)\' (?P&lt;who&gt;(you|(.+))) (ask(| (.+))|asks(| you)|exclaim(| to (.+))|exclaims(| to you)|say(| to (.+))|says(| to you)|communicate(| to (.+))|communicates(| to you))\. \'(.+)\'$"
    regexp="y"
    send_to="14"
    sequence="100"
@@ -297,7 +297,7 @@ capture_stuff("%&lt;who&gt;", "say", "%0", true)
   <trigger
    enabled="y"
    keep_evaluating="y"
-   match="^\'(.+)\' (?P&lt;who&gt;(you|(.+))) (ask(| (.+))|asks(| you)|exclaim(| to (.+))|exclaims(| to you)|say(| to (.+))|says(| to you))\.$"
+   match="^\'(.+)\' (?P&lt;who&gt;(you|(.+))) (ask(| (.+))|asks(| you)|exclaim(| to (.+))|exclaims(| to you)|say(| to (.+))|says(| to you)|communicate(| to (.+))|communicates(| to you))\.$"
    regexp="y"
    send_to="14"
    sequence="100"
@@ -373,6 +373,33 @@ capture_stuff("%&lt;who&gt;", "tell", "%0", true)
    enabled="y"
    keep_evaluating="y"
    match="^You tell [^ ]+ \'(.+)\'$"
+   regexp="y"
+   send_to="14"
+   sequence="100"
+  >
+  <send>trigger_style_runs = TriggerStyleRuns
+capture_stuff("you", "tell", "%0", true)
+</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   expand_variables="y"
+   match="^(?P&lt;who&gt;(@!char_name)) impresses upon you \'(.+)\'$"
+   regexp="y"
+   send_to="14"
+   sequence="100"
+  >
+  <send>trigger_style_runs = TriggerStyleRuns
+capture_stuff("%&lt;who&gt;", "tell", "%0", true)
+ </send>
+   </trigger>
+
+  <trigger
+   enabled="y"
+   keep_evaluating="y"
+   match="^You impress upon [^ ]+ \'(.+)\'$"
    regexp="y"
    send_to="14"
    sequence="100"
@@ -1745,6 +1772,7 @@ function capture_announce(who, line)
     "has been slain by",
     "has reduced my integrity by",
     "Feel my demise in your heart",
+    "An election official for the Towne of Rune announces",
   }
 
   for i = 1, #omit_from_announce do
@@ -1856,6 +1884,10 @@ function capture_yell(who, line)
     "A masculine voice yells",
     "Ferry is now docked at",
     "The ship Merdraco be docked at",
+    "Step right up, step right up!",
+    "If you'd like information on quests, please visit me at the Shrine of St. Wisehart!",
+    "Unbreakable, level-scaling weapons for sale in the village's main street, near the Shrine!",
+    "Come visit the Crystal Guild's hall near the cemetery",
   }
 
   for i = 1, #omit_from_yell do
