@@ -789,7 +789,7 @@ reag_types_show = {"fire", "water", "air", "earth", "ethereal", "gem", "astral",
 
 function update_mini()
   clear_mini()
-  
+
   local txt = ""
 
   for i = 1, #reag_types do

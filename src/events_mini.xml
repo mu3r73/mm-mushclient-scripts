@@ -198,7 +198,7 @@ end
 function toggle_mini_to(state)
   if (state == "") then
     show_mini = not show_mini
-  
+
   elseif (state == "on") then
     show_mini = true
 

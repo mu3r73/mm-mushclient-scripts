@@ -143,17 +143,17 @@ function subtitle_enemy_hp(desc)
 
   for k, v in ipairs(trigger_style_runs) do
     local newval = string.gsub(v.text, desc, desc .. "[" .. damage[desc] .. "%%%]")
-    ColourTell(RGBColourToName(v.textcolour), 
-               RGBColourToName(v.backcolour), 
-               newval)  
+    ColourTell(RGBColourToName(v.textcolour),
+               RGBColourToName(v.backcolour),
+               newval)
   end -- for each style run
-  
+
   Note("")
 end
 
 
 ]]>
 
-</script> 
+</script>
 
 </muclient>

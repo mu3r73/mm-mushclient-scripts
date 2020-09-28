@@ -435,7 +435,7 @@ function OnPluginBroadcast(msg, id, name, text)
   if (id =="f67c4339ed0591a5b010d05b") then -- GMCP message
     if (text == "room.info") then -- room.info
       get_gmcp_room()
-      
+
       if (not imap_started) then
         imap_start() -- we start on first gmcp room package
         process_plane()
@@ -453,7 +453,7 @@ end
 function get_gmcp_room()
   local res, gmcparg = CallPlugin("f67c4339ed0591a5b010d05b", "gmcpval", "room.info")
   luastmt = "gmcpdata = " .. gmcparg
-  
+
   assert(loadstring(luastmt or ""))()
 end
 
@@ -701,12 +701,12 @@ function resizer_mousedown(flags, hotspot_id)
   if (speeding) then
     ColourNote("dodgerblue", "black", "-- IMap_GMCP: I can't resize the window while speedwalking! --")
     return
-  
+
   else -- not speeding
     if (hotspot_id == "resizer") then
       old_width = WindowInfo(iwin, 3)
       old_height = WindowInfo(iwin, 4)
-      
+
       startx, starty = WindowInfo(iwin, 17), WindowInfo(iwin, 18)
     end
   end
@@ -731,7 +731,7 @@ function resizer_release_callback()
   if (not speeding) then
     iwin_width = WindowInfo(iwin, 3)
     iwin_height = WindowInfo(iwin, 4)
-    
+
     -- correct size to keep the aspect ratio
     local ratio
     if (iwin_width < 50)
@@ -767,13 +767,13 @@ end
 
 function mapper_speeding()
   local res, val
-  
+
   res, val = CallPlugin("f973af093e715dece34dc25f", "speeding")
 
   if (res ~= 0) then
     val = nil
   end
-  
+
   return val
 end
 
@@ -860,7 +860,7 @@ function imap_setplane(plane)
       starty = 0,
       filename = "fp.png",
     },
-    
+
     ["lasler"] = {
       name = "lasler",
       maxx = 111 + 44,
@@ -1181,7 +1181,7 @@ end
 function calc_pixpos(posx, posy)
 --  Note("posx: " .. posx)
 --  Note("posy: " .. posy)
-  
+
   local startx = (imap_startx or 0) -- defaults to Alyria
   local starty = (imap_starty or 0)
 --  Note("startx: " .. startx)
@@ -1199,12 +1199,12 @@ function calc_pixpos(posx, posy)
 
 --  Note("posx + startx: " .. posx + startx)
 --  Note("posy + starty: " .. posy + starty)
-  
+
   local pixposx = 3 + ((posx + startx) * pixmaxx / maxx) -- pixels on map
   local pixposy = 3 + ((posy + starty) * pixmaxy / maxy)
 --  Note("pixposx: " .. pixposx)
 --  Note("pixposy: " .. pixposy)
-  
+
   return pixposx, pixposy
 end
 

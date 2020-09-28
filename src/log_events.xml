@@ -71,8 +71,8 @@ http://github.com/mu3r73/mm-mushclient-scripts
 
 <!--  Triggers  -->
 
-<triggers>  
-  
+<triggers>
+
 <!-- betters &c -->
 
   <trigger
@@ -259,7 +259,7 @@ end
 
 ]]>
 
-</script> 
+</script>
 
 </muclient>
 

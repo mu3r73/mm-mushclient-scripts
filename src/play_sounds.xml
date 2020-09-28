@@ -97,9 +97,9 @@ function OnPluginInstall()
   Tell("-- " .. GetPluginInfo(GetPluginID(), 1) .. ": type ")
   ColourTell("silver", "black", GetPluginInfo(GetPluginID(), 1) .. " help")
   Note(" to see info about this plugin --")
-  
+
   path = GetInfo(66) .. "sounds\\"
-  
+
   played_sounds = {}
 end
 
@@ -146,6 +146,6 @@ end
 
 ]]>
 
-</script> 
+</script>
 
 </muclient>

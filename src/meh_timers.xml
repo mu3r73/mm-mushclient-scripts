@@ -165,7 +165,7 @@ function OnPluginInstall()
     Note(" to see info about this plugin --")
 
     sound_file = GetVariable("sound_file")
-    
+
     timers = {}
 
     -- give the plugins time to install

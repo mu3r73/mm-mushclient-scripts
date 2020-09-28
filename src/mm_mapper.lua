@@ -1122,7 +1122,7 @@ function draw (uid)
     -- mod: moved the "?" icon to the upper right corner of the miniwindow
     local x = config.WINDOW.width - WindowTextWidth (win, FONT_ID, "?", true) - 5
     local y = 2
-    local width = draw_text_box (win, FONT_ID, 
+    local width = draw_text_box (win, FONT_ID,
                    x,   -- left
                    y,   -- top
                    "?", true,              -- what to draw, utf8
@@ -1130,7 +1130,7 @@ function draw (uid)
                    config.AREA_NAME_FILL.colour,   -- fill colour
                    config.AREA_NAME_BORDER.colour)     -- border colour
 
-    WindowAddHotspot(win, "<help>",  
+    WindowAddHotspot(win, "<help>",
                    x, y, x + width + 6, y + font_height,   -- rectangle
                    "",  -- mouseover
                    "",  -- cancelmouseover
@@ -1146,7 +1146,7 @@ function draw (uid)
   draw_3d_box (win, 0, 0, config.WINDOW.width, config.WINDOW.height)
 
   add_resizer() -- mod
-  
+
   -- make sure window visible
   WindowShow (win, not hidden)
 
@@ -1205,7 +1205,7 @@ function init (t)
   end -- for
 
   win = GetPluginID () .. "_mapper"
-  
+
   WindowCreate (win, 0, 0, 0, 0, 0, 0, 0)
 
   -- add the fonts
@@ -1243,7 +1243,7 @@ function init (t)
   end -- for
 
   draw_3d_box (win, 0, 0, config.WINDOW.width, config.WINDOW.height)
-  
+
   add_resizer() -- mod
 
   WindowShow (win, true)
@@ -1710,7 +1710,7 @@ function add_resizer()
   -- draw the resize widget bottom right corner.
   local HIGHLIGHT = 0x000000
   local SHADOW = 0x505050
-                   
+
   local x1 = width - size -- + 7
   local y1 = height - size -- + 7
   local x2 = x1 + size
@@ -1761,18 +1761,18 @@ function resizer_callback()
 
   local width = WindowInfo(win, 3) + posx - startx
   startx = posx
-  
+
   if (50 > width) then
     width = 50
     startx = windowinfo.window_left + width
   elseif (windowinfo.window_left + width > GetInfo(281)) then
     width = GetInfo(281) - windowinfo.window_left
     startx = GetInfo(281)
-  end 
+  end
 
   local height = WindowInfo(win, 4) + posy - starty
   starty = posy
-  
+
   if (50 > height) then
     height = 50
     starty = windowinfo.window_top + height
@@ -1782,7 +1782,7 @@ function resizer_callback()
   end
 
   WindowResize(win, width, height, config.BACKGROUND_COLOUR.colour)
-  
+
   WindowShow(win,true)
 end
 
@@ -1802,7 +1802,7 @@ function toggle_show_up_down(status)
   if (status == false) then
     old_show_up_down = show_up_down
     show_up_down = false
-  
+
   else
     show_up_down = old_show_up_down
   end

@@ -109,7 +109,7 @@ http://github.com/mu3r73/mm-mushclient-scripts
   <send>EnableTriggerGroup("script-bazaar", false)
 </send>
   </trigger>
-  
+
 </triggers>
 
 
@@ -164,13 +164,13 @@ function queue_directions(path)
   aux = string.gsub(aux, "nw", "(nw)")
 
   local taux = utils.split(aux, ",")
-  
+
   -- add auto-open for the last door
   local lastdir = taux[#taux]
   table.insert(taux, #taux, "o" .. lastdir)
-  
+
   aux = table.concat(taux, " ")
-  
+
   Execute("spd2 " .. aux)
   EnableTriggerGroup("script-bazaar", false)
 end
@@ -178,6 +178,6 @@ end
 
 ]]>
 
-</script> 
+</script>
 
 </muclient>

@@ -70,7 +70,7 @@ Changes added by Ruthgul:
 
 function OnPluginInstall()
   Note(GetPluginInfo(GetPluginID(), 1) .. ": type " .. GetPluginInfo(GetPluginID(), 1) .. " help to see info about this plugin")
-  
+
   buffer = {}
 end
 
@@ -89,7 +89,7 @@ function OnPluginGetFocus()
     for i, buffered in ipairs(buffer) do
       AppendToNotepad("Trace", buffered .. "\r\n")
     end
-    
+
     buffer = {}
   end
 end

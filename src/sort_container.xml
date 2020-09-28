@@ -332,7 +332,7 @@ function on_first_prompt()
 
     -- give the plugins time to initialize
     wait.time(3)
-  
+
     do_get_name()
   end)
 end
