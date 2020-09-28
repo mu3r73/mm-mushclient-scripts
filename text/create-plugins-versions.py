@@ -5,8 +5,8 @@ import json
 import os
 import re
 
-base_url = 'https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/'
-#base_url = 'https://raw.githubusercontent.com/MateriaMagicaLLC/mm-mushclient-scripts/master/src/'
+base_url = 'https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/'
+#base_url = 'https://raw.githubusercontent.com/MateriaMagicaLLC/mm-mushclient-scripts/master/'
 
 
 def create_plugins_versions():
@@ -42,9 +42,9 @@ def calc_hash(filename, hash_factory = hashlib.md5, chunk_num_blocks = 128):
 
 def find_plugin_details(filepath):
   re_id = re.compile(r'^[ ]+id=\"([0-9a-f]+)\"$')
-  re_begin_updates = re.compile('^' + re.escape('function plugin_update_aux_url()') + '$')
-  re_url_dest = re.compile('^[ ]+"' + re.escape(base_url) + '(.+),(.+)",$')
-  re_url = re.compile('^[ ]+"' + re.escape(base_url) + '(.+)",$')
+  re_begin_updates = re.compile(f"^{re.escape('function plugin_update_aux_url()')}$")
+  re_url_dest = re.compile(f'^[ ]+"{re.escape(base_url)}(src|res)\/(.+),(.+)",$')
+  re_url = re.compile(f'^[ ]+"{re.escape(base_url)}(src|res)\/(.+)",$')
   re_end_updates = re.compile(r'^end$')
 
   updates_started = False
@@ -68,15 +68,15 @@ def find_plugin_details(filepath):
       url_dest_data = re_url_dest.findall(line)
       if (url_dest_data):
         details.get('aux_files').append({
-          'name': url_dest_data[0][0],
-          'dest': url_dest_data[0][1],
+          'name': url_dest_data[0][1],
+          'dest': url_dest_data[0][2],
         })
         continue
       
       url_data = re_url.findall(line)
       if (url_data):
         details.get('aux_files').append({
-          'name': url_data[0],
+          'name': url_data[0][1],
         })
         continue
 
@@ -95,7 +95,13 @@ def show_plugin_info(details):
     res = res + '  aux_files = {'
 
     for (i, e) in enumerate(aux_files, start = 1):
-      res = res + f"""   [{i}] = {{     name = "{e.get('name')}",     dest = "{e.get('dest')}",     }},"""
+      res = res + f"""   [{i}] = {{     name = "{e.get('name')}","""
+      
+      dest = e.get('dest')
+      if (dest):
+        res = res + f'     dest = "{dest}",'
+      
+      res = res + '     },'
 
     res = res + '   }'
 
