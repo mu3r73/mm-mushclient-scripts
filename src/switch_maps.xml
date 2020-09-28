@@ -32,7 +32,7 @@ This plugin is intended for small screens. It helps save screen space, by showin
 
 ** REQUIRES **
 
-- The plugins MM_GMCP_handler (id="f67c4339ed0591a5b010d05b"), IMap_GMCP (id="adc3a873d4e47348da7cb426") and MM_GMCP_Mapper_GMCP (id="f973af093e715dece34dc25f") must be installed and enabled.
+- The plugins MM_GMCP_handler (id="f67c4339ed0591a5b010d05b"), IMap_GMCP (id="adc3a873d4e47348da7cb426") and MM_GMCP_Mapper (id="f973af093e715dece34dc25f") must be installed and enabled.
 - Resize the GMCP mapper's window, if needed, to be the same size as IMap's (400x261), and place it so that it overlaps with it totally.
 
 
@@ -194,7 +194,7 @@ function start_switching()
     end
 
     if (not mapper_present) then
-      Note("-- switch_maps - error: MM_GMCP_Mapper_GMCP plugin not installed / enabled --")
+      Note("-- switch_maps - error: MM_GMCP_Mapper plugin not installed / enabled --")
     end
   end
 end
@@ -206,7 +206,7 @@ end
 
 
 function mapper_plugin_present()
-  return is_plugin_present("MM_GMCP_Mapper_GMCP", "f973af093e715dece34dc25f")
+  return is_plugin_present("MM_GMCP_Mapper", "f973af093e715dece34dc25f")
 end
 
 
@@ -230,7 +230,7 @@ end
 --------------------------------
 
 function mapper_show()
-  -- calls a function in MM_GMCP_Mapper_GMCP
+  -- calls a function in MM_GMCP_Mapper
   local res = CallPlugin("f973af093e715dece34dc25f", "mapper_show")
 
   return res
@@ -238,7 +238,7 @@ end
 
 
 function mapper_hide()
-  -- calls a function in MM_GMCP_Mapper_GMCP
+  -- calls a function in MM_GMCP_Mapper
   local res = CallPlugin("f973af093e715dece34dc25f", "mapper_hide")
 
   return res

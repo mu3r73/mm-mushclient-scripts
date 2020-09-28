@@ -33,7 +33,7 @@ It evaluates a speewalk and sends it to the MUD, 1 direction at a time (so, it m
 ** REQUIRES **
 
 - MM_GMCP_Handler (plugin id="f67c4339ed0591a5b010d05b") must be installed and enabled.
-- MM_GMCP_Mapper_GMCP (plugin id="f973af093e715dece34dc25f") must be installed an enabled to use the 'gate' command.
+- MM_GMCP_Mapper (plugin id="f973af093e715dece34dc25f") must be installed an enabled to use the 'gate' command.
 - Client setting: Game, Configure, Output > [x] Convert IAC EOR/GA to new line (must be checked).
 
 

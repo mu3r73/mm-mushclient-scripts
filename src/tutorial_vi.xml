@@ -997,7 +997,7 @@ For example, to update the gmcp mapper plugin.
 1. Type "update plugin mapper", without the quotes.
 
 2. As a result, you will get this output:
-* MM_GMCP_Mapper_GMCP (by Nick Gammon, Ruthgul):
+* MM_GMCP_Mapper (by Nick Gammon, Ruthgul):
 update plugin f973af093e715dece34dc25f
 update aux f973af093e715dece34dc25f
 
