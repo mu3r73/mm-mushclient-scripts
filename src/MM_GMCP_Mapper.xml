@@ -2921,7 +2921,7 @@ function is_volatile(uid)
   local x = volatile[tostring(uid)]
 
   if (x) then
-    add_to_events_mini("room #" .. current_room .. ": " .. x)
+    add_to_events_mini("room #" .. uid .. ": " .. x)
   end
 
   return (x ~= nil)
