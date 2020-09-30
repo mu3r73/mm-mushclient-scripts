@@ -1706,7 +1706,7 @@ end
 function toggle_terrain_to(name, line, wildcards)
   local status = wildcards.status
   toggle_config2_option("color_terrain", "PK/shop/trainer color supersedes terrain", status)
-  mapper.draw(current_room)
+  mapper_redraw()
 end
 
 
@@ -2772,7 +2772,7 @@ function process_room()
   and ((config2.do_map_wilds) -- we're mapping the wilds
     or ((not is_vmap(zone) or (is_road(terrain) and not is_cave(roomname))))) then
   -- or we're in a part of the wilds that we always wanna map
-    mapper.draw(current_room) -- call mapper to draw this rom
+    mapper_redraw() -- call mapper to draw this rom
   end
 end
 
@@ -3336,7 +3336,7 @@ function map_add_room(name, line, wildcards)
   -- update in-memory table
   load_room_from_database(id)
 
-  mapper.draw(current_room)
+  mapper_redraw()
 end
 
 
@@ -3572,7 +3572,7 @@ function map_add_exit(name, line, wildcards)
     rooms[fromid].exits[dir] = toid
   end
 
-  mapper.draw(current_room)
+  mapper_redraw()
 end
 
 
@@ -3651,7 +3651,7 @@ function gui_room_add_exit(room, uid)
   -- update in-memory table
   rooms[uid].exits[chosen_exit] = exit_destination
 
-  mapper.draw(current_room)
+  mapper_redraw()
 end
 
 
@@ -3729,7 +3729,7 @@ function map_del_room(name, line, wildcards)
     rooms[id] = nil
   end
 
-  mapper.draw(current_room)
+  mapper_redraw()
 end
 
 
@@ -3893,7 +3893,7 @@ function map_del_exit(name, line, wildcards)
     rooms[fromid].exits[dir] = nil
   end
 
-  mapper.draw(current_room)
+  mapper_redraw()
 end
 
 
@@ -3947,7 +3947,7 @@ function gui_room_delete_exit(room, uid)
   -- update in-memory table
   rooms[uid].exits[chosen_exit] = nil
 
-  mapper.draw(current_room)
+  mapper_redraw()
 end
 
 
@@ -3984,6 +3984,14 @@ end
 -- ---------------
 -- modifications
 -- ---------------
+
+-- redraw only if connected
+function mapper_redraw()
+  if (IsConnected()) then
+    mapper.draw(current_room)
+  end
+end
+
 
 -----------------
 -- modify rooms
@@ -4049,7 +4057,7 @@ function update_room(uid)
   -- update rooms cache
   rooms[uid] = load_room_from_database(uid)
 
-  mapper.draw(current_room)
+  mapper_redraw()
 end
 
 
@@ -4303,7 +4311,7 @@ function room_toggle_tag(room, uid, tag)
 
   -- update in-memory table & redraw
   rooms[uid].tags = tags
-  mapper.draw(current_room)
+  mapper_redraw()
 end
 
 
@@ -4423,7 +4431,7 @@ function gui_room_change_exit(room, uid)
 
   -- update in-memory table
   rooms[uid].exits[chosen_exit] = exit_destination
-  mapper.draw(current_room)
+  mapper_redraw()
 end
 
 
@@ -4532,7 +4540,7 @@ end
 function toggle_wilds_mapping(name, line, wildcards)
   local status = wildcards.status
   toggle_config2_option(do_map_wilds, "wilds mapping", status)
---  mapper.draw(current_room)
+--  mapper_redraw()
 end
 
 
@@ -4834,7 +4842,7 @@ function purge_stuff(t, name, unlink)
   mapper.mapprint("Done.")
   SetStatus("Ready")
 
-  mapper.draw(current_room)
+  mapper_redraw()
 end
 
 
@@ -4906,7 +4914,7 @@ function purge_clanhalls()
   mapper.mapprint("Done.")
   SetStatus("Ready")
 
-  mapper.draw(current_room)
+  mapper_redraw()
 end
 
 
@@ -4941,7 +4949,7 @@ function purge_player_homes()
   mapper.mapprint("Done.")
   SetStatus("Ready")
 
-  mapper.draw(current_room)
+  mapper_redraw()
 end
 
 
@@ -4972,7 +4980,7 @@ function purge_notes()
   mapper.mapprint("Done.")
   SetStatus("Ready")
 
-  mapper.draw(current_room)
+  mapper_redraw()
 end
 
 
