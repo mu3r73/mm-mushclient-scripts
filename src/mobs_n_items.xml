@@ -15,7 +15,7 @@
   purpose="NPCs and items database"
   save_state="y"
   date_written="2012-09-26 10:15:07"
-  date_modified="2020-09-27 11:07:14"
+  date_modified="2020-10-01 05:26:36"
   requires="4.71"
   version="1.0"
 >
@@ -33,7 +33,7 @@ Implements a database for NPCs and items.
 
 ** REQUIRES **
 
-- MXP must be ON, to auto-detect NPCs & items [ Client setting: Game, Configure, MXP / Pueblo... > Use MXP / Pueblo: On command (or Yes - always). ]
+- Game settings: MXP must be ON, to auto-detect NPCs & items [ Client setting: Game, Configure, MXP / Pueblo... > Use MXP / Pueblo: On command (or Yes - always). ]
 - MM GMCP Handler, to auto-detect room & area for items
 - MM_GMCP_Mapper, to search for and speedwalk to rooms
 - Speedwalk_Manager_GMCP_P2, to search for and speedwalk to areas
