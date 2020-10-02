@@ -39,6 +39,7 @@ Authors: Nick Gammon, Ruthgul (maintained by Ruthgul)
 
 Changes added by Ruthgul:
 - added support for mailto:, https:// and ftp:// URLs, as proposed in https://www.mushclient.com/forum/?id=3018.
+- now uses style runs (to preserve colors)
 
 
 Latest version:
