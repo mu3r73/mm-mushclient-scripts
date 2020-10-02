@@ -498,17 +498,27 @@ end
 function OnPluginBroadcast(msg, id, name, text)
   if (id =="f67c4339ed0591a5b010d05b") then -- GMCP message
     if (text == "char.affect_application_msg") then
-      on_generic_on()
+      on_gmcp_generic_on()
+    elseif (text == "char.affect_removal_msg") then
+      on_gmcp_generic_off()
     end
   end
 end
 
 
-function on_generic_on()
+function on_gmcp_generic_on()
   get_affect_application()
   who = gmcpval("target")
   spell = gmcpval("skill"):upper()
   categorize_and_show_affect("", who, spell, "on")
+end
+
+
+function on_gmcp_generic_off()
+  get_affect_application()
+  who = gmcpval("target")
+  spell = gmcpval("skill"):upper()
+  categorize_and_show_affect("", who, spell, "off")
 end
 
 
