@@ -77,7 +77,7 @@ http://github.com/mu3r73/mm-mushclient-scripts
    enabled="y"
    keep_evaluating="y"
    regexp="y"
-   match="^(.*)(?<url>(ftp|mailto|https?)\:(|\/\/)([^ ^\,\;])+)(.*)$"
+   match="^(.*)(?<url>(ftp|mailto|https?)\:(|\/\/)([^ ^\,\;\'])+)(.*)$"
    omit_from_output="y"
    sequence="100"
    script="on_hyperlink"
