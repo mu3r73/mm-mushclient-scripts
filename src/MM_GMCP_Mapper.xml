@@ -1413,7 +1413,7 @@ function get_room(uid)
   end
 
   -- look it up
-  local ourroom = rooms[uid] or  load_room_from_database(uid)
+  local ourroom = rooms[uid] or load_room_from_database(uid)
   
   if (not ourroom) then
     return nil
@@ -3657,6 +3657,7 @@ function gui_room_add_exit(room, uid)
 
   -- update in-memory table
   rooms[uid].exits[chosen_exit] = exit_destination
+
   mapper_redraw()
 end
 

@@ -277,7 +277,7 @@ local shorten_direction = {
 }
 
 local function get_room (uid)
-  local room = supplied_get_room (uid) 
+  local room = supplied_get_room (uid)
   room = room or { unknown = true }
 
   -- defaults in case they didn't supply them ...
