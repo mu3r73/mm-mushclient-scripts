@@ -30,7 +30,7 @@ id = 226fb67b0722e0f0ddc3a235  hash = DFC1B104C11C8D61F9297AB18683DA7A
 id = a326b480b3f02b3ff6d58e7d  hash = 998226756A912AD733914BB608D8577A
 id = 164db33914b912da8aac6ecc  hash = 733753A21A9D67486DD8A442B8E533BF
 id = d83fdde9ed133fb0859936a6  hash = DB58EAA5FA1DFC5733DB8379190BC91B
-id = f973af093e715dece34dc25f  hash = C9507224E483995CF3A2D35EDC14F0BE  aux_files = {   [1] = {     name = "mm_mapper.lua",     dest = "MUSH/lua",     },   }
+id = f973af093e715dece34dc25f  hash = 4F33549BDC679E279224151C0631BF7C  aux_files = {   [1] = {     name = "mm_mapper.lua",     dest = "MUSH/lua",     },   }
 id = dc22833520922eacc933b2ac  hash = 2EB3B955ECE28799565B841785FCA4D8
 id = 66f8ef96f2166bb586529087  hash = 6330250C0FD5AEF07F50057DD1DD4138
 id = d2b442f2da9a95f34f5a199f  hash = 2F8535A82983CE1010B7884F2BFE5F94  aux_files = {   [1] = {     name = "generic_miniwindow.lua",     dest = "MUSH/lua",     },   }
@@ -90,7 +90,7 @@ name = world_miniwindow.lua  hash = 1D46EF3A73B88BEE540D280A06016D9C
 name = mapper.lua  hash = 50509BDC8E66EC0F88A02CED8C639CBF
 name = async.lua  hash = B5FED56D5E3DDE4E41DF82260C0879EE
 name = ssl.lua  hash = A5A45DF1936E6D8078CC696AFAECB5D4
-name = mm_mapper.lua  hash = 473C35712902BAF50D12758B2BF3376C
+name = mm_mapper.lua  hash = 03C7E0AED2B27A70AB7DC3C64C5BF139
 name = gmcphelper.lua  hash = 98AB8C64DC13E8704A28C05C061D798F
 name = https.lua  hash = 32F519FAAF7B58BB5695464A34178118
 name = generic_miniwindow.lua  hash = 18A76D66D834FC073090D4754E46648A
