@@ -20,7 +20,7 @@
   purpose="GMCP Mapper for Materia Magica"
   save_state="y"
   date_written="2012-02-03 20:26:09"
-  date_modified="2020-11-04 06:00:29"
+  date_modified="2020-11-04 09:00:55"
   requires="4.71"
   version="1.0"
 >
@@ -2606,7 +2606,7 @@ function map_distance_from_to(name, line, wildcards)
 end
 
 
-function calc_map_distance(fromuid, touid, dontshow)
+function calc_map_distance(fromuid, touid, dont_show)
   local res = map_path2(fromuid, touid, true)
   if (not res) then
     return
