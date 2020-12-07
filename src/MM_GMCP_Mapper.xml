@@ -20,7 +20,7 @@
   purpose="GMCP Mapper for Materia Magica"
   save_state="y"
   date_written="2012-02-03 20:26:09"
-  date_modified="2020-11-04 09:00:55"
+  date_modified="2020-12-07 18:08:56"
   requires="4.71"
   version="1.0"
 >
@@ -5175,7 +5175,6 @@ function OnPluginMXPcloseTag(name, text)
 
   if (string.find(name, "get") == 1) then -- item on the ground
     local long_desc = string.match(name, "get,(.+)")
---    print(long_desc)
     autotag_signposts(long_desc)
   end
 end
@@ -5188,7 +5187,7 @@ end
 
 
 function autotag_signposts(name)
-  if (not is_road_signpost(name)) then
+  if (not name) or (not is_road_signpost(name)) then
     return
   end
 
