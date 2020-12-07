@@ -30,10 +30,10 @@ id = 226fb67b0722e0f0ddc3a235  hash = DFC1B104C11C8D61F9297AB18683DA7A
 id = a326b480b3f02b3ff6d58e7d  hash = 998226756A912AD733914BB608D8577A
 id = 164db33914b912da8aac6ecc  hash = 733753A21A9D67486DD8A442B8E533BF
 id = d83fdde9ed133fb0859936a6  hash = DB58EAA5FA1DFC5733DB8379190BC91B
-id = f973af093e715dece34dc25f  hash = 11DC09BF9D7653FED13C8CF227A4547E  aux_files = {   [1] = {     name = "mm_mapper.lua",     dest = "MUSH/lua",     },   }
+id = f973af093e715dece34dc25f  hash = A14E01F20F5A41FC54E5F696A1D61003  aux_files = {   [1] = {     name = "mm_mapper.lua",     dest = "MUSH/lua",     },   }
 id = dc22833520922eacc933b2ac  hash = 2EB3B955ECE28799565B841785FCA4D8
 id = 66f8ef96f2166bb586529087  hash = 6330250C0FD5AEF07F50057DD1DD4138
-id = d2b442f2da9a95f34f5a199f  hash = 802969319898CB8F1C4F9AD2BD19923B  aux_files = {   [1] = {     name = "generic_miniwindow.lua",     dest = "MUSH/lua",     },   }
+id = d2b442f2da9a95f34f5a199f  hash = B38693B694431D6139F0D1B18AF790E7  aux_files = {   [1] = {     name = "generic_miniwindow.lua",     dest = "MUSH/lua",     },   }
 id = 909d8c23b717f4de1262d0a4  hash = EE1F4DE7A9D4293544FBD8D3A7BC318E
 id = d54ccc4800e5df1ad0ed0aac  hash = 5AB988C3B88D9962E1B6908BC2F54B53
 id = ed9db27b1b50b46624e21eb4  hash = B107FBD56E8646EF09A88816702CB6AC
