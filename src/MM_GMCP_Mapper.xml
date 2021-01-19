@@ -20,7 +20,7 @@
   purpose="GMCP Mapper for Materia Magica"
   save_state="y"
   date_written="2012-02-03 20:26:09"
-  date_modified="2020-12-07 18:08:56"
+  date_modified="2020-12-16 21:28:01"
   requires="4.71"
   version="1.0"
 >
@@ -357,7 +357,7 @@ http://github.com/mu3r73/mm-mushclient-scripts
 
   <alias
     enabled="y"
-    match="^mapper[ ]+flags[ ]+(?<flags>[a-z \-]+)$"
+    match="^mapper[ ]+flags[ ]+(?<flags>[a-zA-Z \-]+)$"
     regexp="y"
     sequence="100"
     script="map_where_flags"
@@ -366,7 +366,7 @@ http://github.com/mu3r73/mm-mushclient-scripts
 
   <alias
     enabled="y"
-    match="^mapper[ ]+notflags[ ]+(?<flags>[a-z \-]+)$"
+    match="^mapper[ ]+notflags[ ]+(?<flags>[a-zA-Z \-]+)$"
     regexp="y"
     sequence="100"
     script="map_where_by_not_flags"
@@ -1500,7 +1500,7 @@ function get_room(uid)
     room.fillcolour = config.SAFE_FILL_COLOUR.colour
     room.fillbrush = 8
 
-  elseif (has_flag(room.flags, "player-kill-chaotic")) then
+  elseif (has_flag(room.flags, "player-kill-chaotic") or has_flag(room.flags, "CPK")) then
     room.fillcolour = config.CPK_FILL_COLOUR.colour
     room.fillbrush = 8
 
@@ -1516,11 +1516,11 @@ function get_room(uid)
     room.fillcolour = config.SHOP_FILL_COLOUR.colour
     room.fillbrush = 8
 
-  elseif (has_flag(room.flags, "player-kill-neutral")) then
+  elseif (has_flag(room.flags, "player-kill-neutral") or has_flag(room.flags, "NPK")) then
     room.fillcolour = config.NPK_FILL_COLOUR.colour
     room.fillbrush = 8
 
-  elseif (has_flag(room.flags, "player-kill-lawful")) then
+  elseif (has_flag(room.flags, "player-kill-lawful") or has_flag(room.flags, "LPK")) then
     room.fillcolour = config.LPK_FILL_COLOUR.colour
     room.fillbrush = 8
 
@@ -2084,7 +2084,7 @@ function map_find(name, line, wildcards)
     end
 
     local cpk = ""
-    if (has_flag(room.flags, "player-kill-chaotic")) then
+    if (has_flag(room.flags, "player-kill-chaotic") or has_flag(room.flags, "CPK")) then
       cpk = red .. bold .. " [CPK]"
     end
 
@@ -2222,7 +2222,6 @@ function map_where_by_flags(flags)
     end
     rflags = string.gsub(use_field or "", " ", "")
     rflags = utils.split(rflags, ",")
-
     if (has_all(sflags, rflags)) then
       t[#t + 1] = row.uid
     end
@@ -2242,12 +2241,13 @@ function has_all(sflags, rflags)
   local tres = {}
 
   for i = 1, #sflags do
---    Note(sflags[i])
+--    print(sflags[i])
     tres[i] = false
 
     for j = 1, #rflags do
---    Note(rflags[j])
-      if (sflags[i] == rflags[j]) then
+--    print(rflags[j])
+      if (string.lower(sflags[i]) == string.lower(rflags[j]))
+      or (get_alt_flag_name(sflags[i]) == string.lower(rflags[j])) then
         tres[i] = true
       end
     end
@@ -2267,12 +2267,13 @@ function has_none(sflags, rflags)
   local tres = {}
 
   for i = 1, #sflags do
---    Note(sflags[i])
+--    print(sflags[i])
     tres[i] = false
 
     for j = 1, #rflags do
---    Note(rflags[j])
-      if (sflags[i] == rflags[j]) then
+--    print(rflags[j])
+      if (string.lower(sflags[i]) == string.lower(rflags[j]))
+      or (get_alt_flag_name(sflags[i]) == string.lower(rflags[j])) then
         tres[i] = true
       end
     end
@@ -2284,6 +2285,19 @@ function has_none(sflags, rflags)
   end
 
   return res
+end
+
+
+function get_alt_flag_name(flag)
+  local alt_flag_names = {
+    ['lpk'] = 'player-kill-lawful',
+    ['npk'] = 'player-kill-neutral',
+    ['cpk'] = 'player-kill-chaotic',
+    ['player-kill-lawful'] = 'lpk',
+    ['player-kill-neutral'] = 'npk',
+    ['player-kill-chaotic'] = 'cpk',
+  }
+  return alt_flag_names[string.lower(flag)]  
 end
 
 
@@ -2342,7 +2356,7 @@ function show_hyperlinks(t)
     Tell("room: ")
     Hyperlink ("mapper goto " .. t[i], room.name, "", "white", bgcol, false)
 
-    if (has_flag(room.flags, "player-kill-chaotic")) then
+    if (has_flag(room.flags, "player-kill-chaotic") or has_flag(room.flags, "CPK")) then
       ColourTell("red", bgcol, " [CPK]")
     end
 
@@ -2449,7 +2463,7 @@ function map_cpk()
     return
   end
 
-  map_where_by_flags("player-kill-chaotic")
+  map_where_by_flags("CPK")
 end
 
 
@@ -2769,7 +2783,8 @@ function process_room()
   zone = gmcpval("zone")
 
   if (uid ~= "") then
---    Note(uid)
+  -- and (not is_maze(uid))
+--    print(uid)
 
     if (uid) then
       roomname = gmcpval("name")
@@ -2818,10 +2833,12 @@ function process_room()
     first_room = false
   end
 
-  if (uid) -- we're not in a maze
+  if (uid)
+  -- and not is_maze(uid) -- we're not in a maze
   and ((config2.do_map_wilds) -- we're mapping the wilds
     or ((not is_vmap(zone) or (is_road(terrain) and not is_cave(roomname))))) then
   -- or we're in a part of the wilds that we always wanna map
+--    print(uid)
     mapper_redraw() -- call mapper to draw this rom
   end
 end
@@ -3256,9 +3273,9 @@ function do_load_room(uid)
     else
       room.flags = row.description
       room.flags = fix_flag(room.flags, row.safe, "safe")
-      room.flags = fix_flag(room.flags, row.lpk, "player-kill-lawful")
-      room.flags = fix_flag(room.flags, row.npk, "player-kill-neutral")
-      room.flags = fix_flag(room.flags, row.cpk, "player-kill-chaotic")
+      room.flags = fix_flag(room.flags, row.lpk, "LPK", "player-kill-lawful")
+      room.flags = fix_flag(room.flags, row.npk, "NPK", "player-kill-neutral")
+      room.flags = fix_flag(room.flags, row.cpk, "CPK", "player-kill-chaotic")
 
       room.notes = row.notes
 
@@ -3308,9 +3325,10 @@ function room_exits(uid)
 end
 
 
-function fix_flag(flags, field, flag)
+function fix_flag(flags, field, flag, old_flag)
   if (is_true(field))
-  and (not has_flag(flags, flag)) then
+  and (not has_flag(flags, flag))
+  and (not old_flag or not has_flag(flags, old_flag)) then
     flags = add_a_flag(flags, flag)
   end
 
@@ -3465,6 +3483,11 @@ function map_add_bookmark(name, line, wildcards)
     mapper.mapprint("The room", id, "isn't in the map.")
     return
   end
+  
+  if (room.notes == new_note) then
+    -- same notes as before, don't change anything
+    return
+  end
 
   db:exec("BEGIN TRANSACTION;")
 
@@ -3581,6 +3604,10 @@ end
 --------------
 
 function save_exits_to_database(uid, exits_str)
+  if (is_maze(uid)) then
+    return
+  end
+  
   room = load_room_from_database(uid)
   db:exec("BEGIN TRANSACTION;")
   for dir in string.gmatch(exits_str, "%a+") do
