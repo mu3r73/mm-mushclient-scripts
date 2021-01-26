@@ -54,7 +54,7 @@ id = 4327c10cd9ae383bef04a7fc  hash = B4B4976428DADE2C4F88601DF22D83F9
 id = cab11fa55cae7d04b2fe8b70  hash = 96CCF63EB0B125BBD15BD0375E08DE1C
 id = 4b03d42b86ed2b802247c058  hash = 3E91D54F02A4D5B61C6D79E935BFCB5D
 id = fbd5b7cc1ef6acf827a3f4a1  hash = 57532F7F905C471B80A2104228F4361C  aux_files = {   [1] = {     name = "async.lua",     dest = "MUSH/lua",     },   [2] = {     name = "ssl.lua",     dest = "MUSH/lua",     },   [3] = {     name = "https.lua",     dest = "MUSH/lua/ssl",     },   }
-id = 5945aedf1aacc09e42c48cef  hash = 23DA961CE4401F570DD3EDE144D3754F  aux_files = {   [1] = {     name = "ssl.lua",     dest = "MUSH/lua",     },   [2] = {     name = "async.lua",     dest = "MUSH/lua",     },   [3] = {     name = "socket.lua",     dest = "MUSH/lua",     },   [4] = {     name = "ssl/https.lua",     dest = "MUSH/lua/ssl",     },   [5] = {     name = "socket/ftp.lua",     dest = "MUSH/lua/socket",     },   [6] = {     name = "socket/headers.lua",     dest = "MUSH/lua/socket",     },   [7] = {     name = "socket/http.lua",     dest = "MUSH/lua/socket",     },   [8] = {     name = "socket/smtp.lua",     dest = "MUSH/lua/socket",     },   [9] = {     name = "socket/tp.lua",     dest = "MUSH/lua/socket",     },   [10] = {     name = "socket/url.lua",     dest = "MUSH/lua/socket",     },   }
+id = 5945aedf1aacc09e42c48cef  hash = C8F46C22AA3FB9A700A34DBAE89D19B6
 id = ad02c292bb640b7aee9e4df0  hash = B3276065833AB65F108BF608A1DE36EE
 id = e377771aeee520a633f3dd4d  hash = BDB24CFA173669E5CAE215916B11BA75
 id = 66f8ef96f2166bb586529087  hash = 6330250C0FD5AEF07F50057DD1DD4138
@@ -94,13 +94,6 @@ name = mapper.lua  hash = 50509BDC8E66EC0F88A02CED8C639CBF
 name = mm_mapper.lua  hash = 103380E9ABD6EAAC562C10652420AE1E
 name = ssl.lua  hash = 5749E5C5936DFA4471E5748A844987FC
 name = world_miniwindow.lua  hash = 1D46EF3A73B88BEE540D280A06016D9C
-name = https.lua  hash = 6DF08DD6A867EDD02A69664B2392EC2A
-name = ftp.lua  hash = 842CD9E4D470D1CEF31B52CFFA6DEDD0
-name = headers.lua  hash = 61A437D6AEB2885E15540A01E32F85FE
-name = http.lua  hash = EAFD39F22B1911A88E18309B1BCBD4AC
-name = smtp.lua  hash = 163B55D0C7F29F68533758235FDAE254
-name = tp.lua  hash = 8C4ADCE78DB55217F5328C82F23CAF21
-name = url.lua  hash = 626CBFD7A0F77ABDF1E46E2052286259
 name = alyria.png  hash = 5023E43A6CEAC6E4E60BD3B2135EC4A5
 name = alyria_spk_purple.png  hash = 4B4EE3F0DDD4D2FE85751B4E91647E64
 name = alyria_spk_red.png  hash = 5E8C1597EDA4D371152CAE90BA4B7247
