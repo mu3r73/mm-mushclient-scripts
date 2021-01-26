@@ -242,22 +242,23 @@ end
 
 function plugin_update_aux_url()
   local t = {
+-- we're NOT letting it update its libraries! (but these would be req'd files):
 --    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/dll/lua5.1.dll,MUSH", -- LuaJIT
 --    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/dll/lua51.dll,MUSH", -- LuaJIT
 --    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/dll/openssl.dll,MUSH", -- lua-openssl
 --    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/dll/llthreads2.dll,MUSH", -- lua-llthreads2
 --    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/dll/socket/core.dll,MUSH", -- LuaSocket
 --    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/dll/mime/core.dll,MUSH",
-    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/ssl.lua,MUSH/lua",
-    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/async.lua,MUSH/lua",
-    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket.lua,MUSH/lua",
-    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/ssl/https.lua,MUSH/lua/ssl",
-    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket/ftp.lua,MUSH/lua/socket",
-    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket/headers.lua,MUSH/lua/socket",
-    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket/http.lua,MUSH/lua/socket",
-    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket/smtp.lua,MUSH/lua/socket",
-    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket/tp.lua,MUSH/lua/socket",
-    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket/url.lua,MUSH/lua/socket",
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/ssl.lua,MUSH/lua",
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/async.lua,MUSH/lua",
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket.lua,MUSH/lua",
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/ssl/https.lua,MUSH/lua/ssl",
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket/ftp.lua,MUSH/lua/socket",
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket/headers.lua,MUSH/lua/socket",
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket/http.lua,MUSH/lua/socket",
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket/smtp.lua,MUSH/lua/socket",
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket/tp.lua,MUSH/lua/socket",
+--    "https://raw.githubusercontent.com/mu3r73/mm-mushclient-scripts/master/src/socket/url.lua,MUSH/lua/socket",
   }
   return (table.concat(t, ";"))
 end
