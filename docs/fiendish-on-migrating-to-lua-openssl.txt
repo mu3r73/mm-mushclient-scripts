@@ -5,15 +5,15 @@ https://github.com/zhaozg/lua-openssl
 
 The complete set of files related to sockets, ssl, and threading should be:
 
+MUSHclient/openssl.dll
+MUSHclient/llthreads.dll (for asynchronous background sockets)
+--MUSHclient/ssleay32.dll
+--MUSHclient/libeay32.dll
 MUSHclient/socket/*
-MUSHclient/lua/ssl/*
 MUSHclient/mime/*
 MUSHclient/lua/async.lua (for asynchronous background sockets)
 MUSHclient/lua/ssl.lua
 MUSHclient/lua/socket.lua
-MUSHclient/libeay32.dll
-MUSHclient/llthreads.dll (for asynchronous background sockets)
-MUSHclient/openssl.dll
-MUSHclient/ssleay32.dll
+MUSHclient/lua/ssl/*
 
 You might also need to replace your lua dll with mine (there are two), since I use LuaJIT instead of PUC-Rio Lua, and then also include the msvcr100 dll if you don't have it in your system32 directory.
