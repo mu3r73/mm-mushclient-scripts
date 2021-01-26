@@ -15,7 +15,7 @@
   purpose="capture channels to a single dummy world"
   save_state="y"
   date_written="2012-05-13 16:42:17"
-  date_modified="2020-09-28 09:07:56"
+  date_modified="2021-01-26 09:52:34"
   requires="4.71"
   version="1.0"
 >
@@ -1275,7 +1275,8 @@ function OnPluginBroadcast(msg, id, pname, text)
       handle_gmcp_gecho()
     end
 
-  elseif (id == "fbd5b7cc1ef6acf827a3f4a1") then -- plugins_updater_v2
+  elseif (id == "fbd5b7cc1ef6acf827a3f4a1") -- plugins_updater_v2
+  or (id == "5945aedf1aacc09e42c48cef") then -- plugins_updater_v3
     if (msg == 1) then
       Note(text)
       handle_gmcp_gecho(text)
