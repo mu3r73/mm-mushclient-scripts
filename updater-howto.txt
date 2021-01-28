@@ -1,4 +1,4 @@
-To update plugins_updater_v3, and enable it to work with this github repo:
+To install plugins_updater_v3, and enable it to work with this github repo:
 
 1. close MUSHclient
 
@@ -15,7 +15,7 @@ https://github.com/mu3r73/mm-mushclient-scripts/raw/master/res/plugins_updater_v
    
    b) remove the previous updater (plugins_updater_v2)
    
-   c) install the new updater (plugins_updater_v3, should be located in the MUSHclient/worlds/plugins/MM directory)
+   c) install the new updater (plugins_updater_v3 - it should be located in the MUSHclient/worlds/plugins/MM directory)
 
 Once you've done this, it should auto-scan your local MUSHclient plugins, and offer you the option to update them.
 
