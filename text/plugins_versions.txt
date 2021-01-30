@@ -54,7 +54,7 @@ id = 4327c10cd9ae383bef04a7fc  hash = B4B4976428DADE2C4F88601DF22D83F9
 id = cab11fa55cae7d04b2fe8b70  hash = 96CCF63EB0B125BBD15BD0375E08DE1C
 id = 4b03d42b86ed2b802247c058  hash = 3E91D54F02A4D5B61C6D79E935BFCB5D
 id = fbd5b7cc1ef6acf827a3f4a1  hash = 57532F7F905C471B80A2104228F4361C  aux_files = {   [1] = {     name = "async.lua",     dest = "MUSH/lua",     },   [2] = {     name = "ssl.lua",     dest = "MUSH/lua",     },   [3] = {     name = "https.lua",     dest = "MUSH/lua/ssl",     },   }
-id = 5945aedf1aacc09e42c48cef  hash = C8F46C22AA3FB9A700A34DBAE89D19B6
+id = 5945aedf1aacc09e42c48cef  hash = 0F24996B7535E5CC8E8E303B16140148
 id = ad02c292bb640b7aee9e4df0  hash = B3276065833AB65F108BF608A1DE36EE
 id = e377771aeee520a633f3dd4d  hash = BDB24CFA173669E5CAE215916B11BA75
 id = 66f8ef96f2166bb586529087  hash = 6330250C0FD5AEF07F50057DD1DD4138
@@ -87,12 +87,10 @@ id = efe96b7604c453d0a92110e0  hash = 1512A389BA370D19A249B8AB794F0FE4
 id = 4f76c77c73affc51fa8fc841  hash = 5CF39B88AFEEFAAD48E82C4B5EBBFB67
 id = cb6469228f9f7e26129c1ebc  hash = 4659263568A2D3B728129CAB86D346C3  aux_files = {   [1] = {     name = "world_miniwindow.lua",     dest = "MUSH/lua",     },   }
 id = 616b8084d0f246d12d54588b  hash = 829551EAC3FCF9FD4C00F3EE8DB2F185  aux_files = {   [1] = {     name = "generic_miniwindow.lua",     dest = "MUSH/lua",     },   }
-name = async.lua  hash = BDC7BBACBBB218CF26DA6C7874D4AC3D
 name = generic_miniwindow.lua  hash = 18A76D66D834FC073090D4754E46648A
 name = gmcphelper.lua  hash = 98AB8C64DC13E8704A28C05C061D798F
 name = mapper.lua  hash = 50509BDC8E66EC0F88A02CED8C639CBF
 name = mm_mapper.lua  hash = 103380E9ABD6EAAC562C10652420AE1E
-name = ssl.lua  hash = 5749E5C5936DFA4471E5748A844987FC
 name = world_miniwindow.lua  hash = 1D46EF3A73B88BEE540D280A06016D9C
 name = alyria.png  hash = 5023E43A6CEAC6E4E60BD3B2135EC4A5
 name = alyria_spk_purple.png  hash = 4B4EE3F0DDD4D2FE85751B4E91647E64
