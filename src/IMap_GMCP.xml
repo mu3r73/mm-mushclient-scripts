@@ -15,7 +15,7 @@
    purpose="Shows your position in the vmap, to help you travel."
    save_state="y"
    date_written="2012-02-04 11:36:44"
-   date_modified="2015-03-23 08:22:41"
+   date_modified="2021-01-31 07:37:24"
    version="1.0"
    >
 
@@ -1535,6 +1535,10 @@ function show_location(area_name, text)
 
     if (subareas[area_name]) then
       area_name = subareas[area_name]
+    end
+
+    if (not sextant_readings[plane]) then
+      return
     end
 
     local sextant = sextant_readings[plane][area_name]
