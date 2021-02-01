@@ -61,7 +61,7 @@ id = 66f8ef96f2166bb586529087  hash = 6330250C0FD5AEF07F50057DD1DD4138
 id = bb2a97fe72b34a0cd5135bcf  hash = B101AAD5F12106FD25C1C79DC22CB78D
 id = d2b442f2da9a95f34f5a199f  hash = B38693B694431D6139F0D1B18AF790E7  aux_files = {   [1] = {     name = "generic_miniwindow.lua",     dest = "MUSH/lua",     },   }
 id = 233091f6c00f9afb14a2af62  hash = BB1D17954340C6A7867B920A760023B5  aux_files = {   [1] = {     name = "generic_miniwindow.lua",     dest = "MUSH/lua",     },   }
-id = 4e2bf9f75646bf678cf620dd  hash = 4C93FA1E4B9259B252E3FF05315E70E0  aux_files = {   [1] = {     name = "ping.mp3",     dest = "MUSH/sounds",     },   }
+id = 4e2bf9f75646bf678cf620dd  hash = 2B9E1CD68FE15304C58A35819B8CA34D  aux_files = {   [1] = {     name = "ping.mp3",     dest = "MUSH/sounds",     },   }
 id = 697bd90f4f6ee5ac1493050c  hash = E7A347D9DB96F0150CED978815540933
 id = 7daf1d7890d9db73d74a8188  hash = 36A08E43DC279CB98E36F16776EB2EAC
 id = 522cd3350766f852d36c5e5c  hash = B021ABD0CEE849BAD27D512EA33C436A
