@@ -1182,7 +1182,7 @@ function calc_dmg_prcnt(t)
     end
   end
 
-  return max .. "%"
+  return max
 end
 
 
@@ -1226,7 +1226,7 @@ function show_table(tdd, who, shortened, tbpts, prcnt, hicol, dimcol)
     if (config.show_dmg_prcnt) and (prcnt ~= "") then
       ColourTell(dimcol, bgcol, " [dmg: ")
       ColourTell(dimcol, bgcol, prcnt)
-      ColourTell(dimcol, bgcol, "]")
+      ColourTell(dimcol, bgcol, "%]")
     end
 
     Note("") -- line break
